@@ -1,0 +1,10 @@
+.image-container img{
+    width:80px;
+    height:80px;
+    object-fit: cover;
+    border-radius:500px;
+}
+
+.student-info p{
+    margin-bottom:0px !important;
+}
