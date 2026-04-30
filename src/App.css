@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family:"Lato", sans-serif;
+}
+
 .image-container img{
     width:80px;
     height:80px;
@@ -5,6 +11,52 @@
     border-radius:500px;
 }
 
-.student-info p{
+.crud-btns{
+    display:flex;
+    gap:10px;
+}
+
+.std-card{
+    padding:20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 12px;
+}
+
+.student-info>h5:first-child{
+font-size:20px;
+font-weight:600;
+line-height:1.2em;
+margin-bottom:10px;
+}
+
+.student-info>p:first-child{
+margin-bottom:10px !important;
+}
+.crud-btns button , .add-btn{
+    border-radius:4px;
+    padding:8px 12px;
+    border:none;
+    color:white;
+}
+.bg-yellow{
+    background:#a28089; 
+}
+.bg-red{
+    background:#ffa8B6;
+}
+.bg-green{
+    background:#00d6bd;
+}
+
+p{
     margin-bottom:0px !important;
+}
+
+.bg-blue{
+    background-color: #4659ff;
+}
+
+.p-20{
+    padding-bottom:20px;
 }
