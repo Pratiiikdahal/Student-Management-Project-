@@ -1,6 +1,8 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import useuserStore from '../State/store'
+import { useNavigate } from 'react-router-dom'
 function Home() {
+    let navigate=useNavigate();
     const students=useuserStore((state)=>state.users)
     return (
         <>
@@ -11,7 +13,7 @@ function Home() {
                         <h2>Dashboard</h2>
                     </Col>
                     <Col lg={4} md={6} sm={5} className='d-flex justify-content-end'>
-                    <button className='add-btn bg-blue'>
+                    <button className='add-btn bg-blue' onClick={()=>navigate('/add-student')}>
                          + Add Students
                     </button>
                     </Col>
@@ -36,7 +38,7 @@ function Home() {
                                         <p><b>Course:</b>{student.course}</p>
                                     </div>
                                     <div className="crud-btns">
-                                        <button className='edit-btn bg-yellow'>Edit Info</button>
+                                        <button className='edit-btn bg-yellow' onClick={()=>navigate(`/edit-student/${student.id}`)}>Edit Info</button>
                                         <button className='delete-btn bg-red'>Delete Info</button>
                                     </div>
                                 </div>

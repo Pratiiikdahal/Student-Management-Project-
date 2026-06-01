@@ -71,3 +71,14 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding:30px;
 }
+.form-btn-group{
+    display:flex;
+    justify-content: flex-end;
+    gap:20px;
+}
+
+.form-btn-group :nth-child(2){
+    color:black;
+    background:#ffae3b;
+    border:none;
+}
