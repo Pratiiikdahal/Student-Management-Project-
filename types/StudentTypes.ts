@@ -3,10 +3,18 @@ export type formTitle = {
 }
 
 export type formTypes={
-    student_name:string,
-    student_age:number,
-    course_enrolled:string,
-    student_email:string,
-    student_address:string,
-    student_phone:string,
+    id?:number
+    name:string,
+    age:number,
+    course:string,
+    email:string,
+    address:string,
+    phone:string,
+}
+
+export type studentType={
+    users:formTypes[],
+    addStudents:(students:formTypes)=>void,
+    updateStudents:()=>void,
+    deleteStudents:()=>void,
 }

@@ -6,6 +6,8 @@ import type { formTypes } from '../types/StudentTypes';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { student_schema } from '../Schema/StudentSchema';
 import { useNavigate } from 'react-router-dom';
+import Addstudents from '../Pages/Addstudents';
+import useUserStore from '../State/store';
 
 function Forms({ title_edit = false }: formTitle) {
     let navigate = useNavigate();
@@ -13,7 +15,23 @@ function Forms({ title_edit = false }: formTitle) {
         resolver: zodResolver(student_schema), mode: 'onChange'
     });
 
-    const submit_action = (data: formTypes) => (console.log(data))
+    //accessing the functions created in the store
+    const addStudents=useUserStore((state)=>(state.addStudents))
+    const updateStudents=useUserStore((state)=>state.updateStudents)
+
+    const submit_action = (data: formTypes) => {
+        if(!title_edit){ // if the form is not the edit form 
+            //add the Students Information
+            addStudents(data);
+            console.log("data has been added to utils !!");
+            navigate('/');
+        }
+
+        else{
+            //update the Students Information
+        }
+    }
+
     return (
         <div>
             <Container className="mt-4">
@@ -24,15 +42,15 @@ function Forms({ title_edit = false }: formTitle) {
                             <Col md={6}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Student Name</Form.Label>
-                                    <Form.Control placeholder="Enter Student Name" {...register('student_name')} />
-                                    {errors.student_name && <p style={{ color: 'red' }}>{errors.student_name.message}</p>}
+                                    <Form.Control placeholder="Enter Student Name" {...register('name')} />
+                                    {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
                                 </Form.Group>
                             </Col>
                             <Col md={6}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Student Age</Form.Label>
-                                    <Form.Control placeholder="Enter Age" {...register('student_age', { valueAsNumber: true })} />
-                                    {errors.student_age && <p style={{ color: 'red' }}>{errors.student_age.message}</p>}
+                                    <Form.Control placeholder="Enter Age" {...register('age', { valueAsNumber: true })} />
+                                    {errors.age && <p style={{ color: 'red' }}>{errors.age.message}</p>}
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -41,15 +59,15 @@ function Forms({ title_edit = false }: formTitle) {
                             <Col md={6}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Course Enrolled</Form.Label>
-                                    <Form.Control placeholder="Enter Course" {...register('course_enrolled')} />
-                                    {errors.course_enrolled && <p style={{ color: 'red' }}>{errors.course_enrolled.message}</p>}
+                                    <Form.Control placeholder="Enter Course" {...register('course')} />
+                                    {errors.course && <p style={{ color: 'red' }}>{errors.course.message}</p>}
                                 </Form.Group>
                             </Col>
                             <Col md={6}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Student Email</Form.Label>
-                                    <Form.Control placeholder="Enter Email" {...register('student_email')} />
-                                    {errors.student_email && <p style={{ color: 'red' }}>{errors.student_email.message}</p>}
+                                    <Form.Control placeholder="Enter Email" {...register('email')} />
+                                    {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -57,15 +75,15 @@ function Forms({ title_edit = false }: formTitle) {
                             <Col md={6}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Student Address</Form.Label>
-                                    <Form.Control placeholder="Enter Address" {...register('student_address')} />
-                                    {errors.student_address && <p style={{ color: 'red' }}>{errors.student_address.message}</p>}
+                                    <Form.Control placeholder="Enter Address" {...register('address')} />
+                                    {errors.address && <p style={{ color: 'red' }}>{errors.address.message}</p>}
                                 </Form.Group>
                             </Col>
                             <Col md={6}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Student Phone</Form.Label>
-                                    <Form.Control placeholder="Enter Phone Number"  {...register('student_phone')} />
-                                    {errors.student_phone && <p style={{ color: 'red' }}>{errors.student_phone.message}</p>}
+                                    <Form.Control placeholder="Enter Phone Number"  {...register('phone')} />
+                                    {errors.phone && <p style={{ color: 'red' }}>{errors.phone.message}</p>}
 
                                 </Form.Group>
                             </Col>
