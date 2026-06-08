@@ -15,7 +15,7 @@ import users from '../State/store';
 function Forms({ title_edit = false }: formTitle) {
     let navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<formTypes>({
-        resolver: zodResolver(student_schema), mode: 'onChange'
+        // resolver: zodResolver(student_schema), mode: 'onChange'
     });
 
     //accessing the functions created in the store
@@ -23,10 +23,12 @@ function Forms({ title_edit = false }: formTitle) {
     const updateStudents=useUserStore((state)=>state.updateStudents)
 
     const submit_action = (data: formTypes) => {
+        console.log('clicked')
         if(!title_edit){ // if the form is not the edit form 
             //add the Students Information
+            console.log('submit data :',data)
             addStudents(data);
-            console.log("data has been added to utils !!");
+            console.log(data);
             navigate('/');
         }
 
@@ -40,7 +42,7 @@ function Forms({ title_edit = false }: formTitle) {
             <Container className="mt-4">
                 <section className='students-info-form'>
                     <h1 className="mb-4">{title_edit ? 'Edit Student' : 'Add New Student'}</h1>
-                    <Form method='post' onSubmit={handleSubmit(submit_action)}>
+                    <Form onSubmit={handleSubmit(submit_action)}>
                         <Row>
                             <Col md={6}>
                                 <Form.Group className="mb-3">
@@ -91,12 +93,6 @@ function Forms({ title_edit = false }: formTitle) {
                                 </Form.Group>
                             </Col>
                         </Row>
-                        <Form.Group className="mb-3">
-                            <Form.Check
-                                type="checkbox"
-                                label="All the information that i entered are correct here."
-                            />
-                        </Form.Group>
                             <div className='form-btn-group'>
                                 <Button variant="primary" type="submit">
                                     {title_edit ? 'Edit Student Info' : 'Add New Student'}

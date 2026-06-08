@@ -1,9 +1,10 @@
+import { string } from "zod"
+
 export type formTitle = {
     title_edit?: boolean
 }
 
 export type formTypes={
-    id?:number
     name:string,
     age:number,
     course:string,
@@ -13,8 +14,9 @@ export type formTypes={
 }
 
 export type studentType={
-    users:formTypes[],
+    users:(formTypes & {id:number} )[],
     addStudents:(students:formTypes)=>void,
     updateStudents:()=>void,
     deleteStudents:(id:number)=>void,
+
 }

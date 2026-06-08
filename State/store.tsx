@@ -1,28 +1,34 @@
 import { create } from 'zustand'
 import { students } from '../utils/students'
 import type { formTypes, studentType } from '../types/StudentTypes'
-import { persist } from 'zustand/middleware'
+import { persist, createJSONStorage } from 'zustand/middleware'
 
 const useUserStore = create<studentType>()(
     persist(
         (set, get) => ({
             users: students,
             addStudents: (student: formTypes) => {
+                const newStudent = {
+                    ...student,
+                    id:Date.now(),
+                 }
+
                 set((state) => ({
-                    users: [student, ...state.users],
+                    users: [newStudent, ...state.users],
                 }))
             },
 
-            updateStudents: () => {},
+            updateStudents: () => { },
 
-            deleteStudents: (id:number) => {
-                set((state)=>({
-                     users:state.users.filter((user)=>user.id != id)
+            deleteStudents: (id: number) => {
+                set((state) => ({
+                    users: state.users.filter((user) => user.id != id)
                 }))
             },
         }),
         {
             name: 'students',
+            storage: createJSONStorage(() => sessionStorage)
         }
     )
 )

@@ -13,8 +13,7 @@ function Home() {
     const students = useuserStore((state) => state.users)
 
     const [showModal, setShowModal] = useState(false);
-    const [selectedUser, setSelectedUser] = useState<formTypes | null>(null);
-
+const [selectedUser, setSelectedUser] = useState<(formTypes & { id: number }) | null>(null);
     const deleteStudents = useUserStore((state) => state.deleteStudents)
     return (
         <>
