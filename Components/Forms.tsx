@@ -1,4 +1,4 @@
-import { Container, Button, Col, Row } from 'react-bootstrap';
+import { Container, Button, Col, Row, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import type { formTitle } from '../types/StudentTypes';
@@ -6,8 +6,11 @@ import type { formTypes } from '../types/StudentTypes';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { student_schema } from '../Schema/StudentSchema';
 import { useNavigate } from 'react-router-dom';
-import Addstudents from '../Pages/Addstudents';
 import useUserStore from '../State/store';
+import Modals from '../Components/Modals';
+import { useState } from 'react';
+import users from '../State/store';
+
 
 function Forms({ title_edit = false }: formTitle) {
     let navigate = useNavigate();
@@ -33,7 +36,7 @@ function Forms({ title_edit = false }: formTitle) {
     }
 
     return (
-        <div>
+        <>
             <Container className="mt-4">
                 <section className='students-info-form'>
                     <h1 className="mb-4">{title_edit ? 'Edit Student' : 'Add New Student'}</h1>
@@ -105,8 +108,8 @@ function Forms({ title_edit = false }: formTitle) {
                     </Form>
                 </section>
             </Container>
-        </div>
-    )
+        </>
+)
 }
 
 export default Forms

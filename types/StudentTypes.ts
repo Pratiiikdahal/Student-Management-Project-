@@ -16,5 +16,5 @@ export type studentType={
     users:formTypes[],
     addStudents:(students:formTypes)=>void,
     updateStudents:()=>void,
-    deleteStudents:()=>void,
+    deleteStudents:(id:number)=>void,
 }

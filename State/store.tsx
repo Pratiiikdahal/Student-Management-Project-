@@ -15,7 +15,11 @@ const useUserStore = create<studentType>()(
 
             updateStudents: () => {},
 
-            deleteStudents: () => {},
+            deleteStudents: (id:number) => {
+                set((state)=>({
+                     users:state.users.filter((user)=>user.id != id)
+                }))
+            },
         }),
         {
             name: 'students',
