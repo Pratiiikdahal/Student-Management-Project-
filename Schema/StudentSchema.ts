@@ -1,7 +1,6 @@
    import {z} from 'zod';
    
    export const student_schema=z.object({
-        id:z.number(),
         name:z.string(),
         age:z.number({message:'Age is not valid'}).int({message:'Please enter a valid age !'}).positive(),
         course:z.string({message:'Please enter a valid course'}),
