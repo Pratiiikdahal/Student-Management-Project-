@@ -25,6 +25,13 @@ const useUserStore = create<studentType>()(
                     users: state.users.filter((user) => user.id != id)
                 }))
             },
+
+            searchResults:"",
+            setSearchResults:(value:string)=>{
+                set({
+                    searchResults:value
+                })
+            }
         }),
         {
             name: 'students',

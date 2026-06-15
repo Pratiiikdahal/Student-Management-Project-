@@ -6,30 +6,33 @@ import { formTypes } from '../types/StudentTypes';
 import Modals from '../Components/Modals';
 import deleteStudents from '../State/store'
 import useUserStore from '../State/store';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 
 function Home() {
     let navigate = useNavigate();
     const students = useuserStore((state) => state.users)
-
+    const searchResults=useUserStore((state)=>state.searchResults)
+    const setSearchResults=useUserStore((state)=>state.setSearchResults)
     const [showModal, setShowModal] = useState(false);
     const [selectedUser, setSelectedUser] = useState<(formTypes & { id: number }) | null>(null);
     const deleteStudents = useUserStore((state) => state.deleteStudents)
-    const [searchResults, setSearchResults] = useState('')
 
     const filteredStudents = students.filter(student =>(
         student.name.toLowerCase().includes(searchResults.toLowerCase())))
 
         return (
             <>
-                <Container>
+                <Header/>
+                {/* <Container>
                     <section className='search-header'>
                         <form method='post'>
                             <input className='search-input' type='text' placeholder='Search Here...' onChange={(e) => (setSearchResults(e.target.value))} />
                             <button type='submit'>Search</button>
                         </form>
                     </section>
-                </Container>
+                </Container> */}
                 <section className="head pt-5">
                     <Container>
                         <Row>
@@ -88,6 +91,7 @@ function Home() {
                         }
                     }}
                 />
+                <Footer/>
             </>
         )
 }

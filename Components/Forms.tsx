@@ -15,7 +15,7 @@ import users from '../State/store';
 function Forms({ title_edit = false }: formTitle) {
     let navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<formTypes>({
-        // resolver: zodResolver(student_schema), mode: 'onChange'
+        resolver: zodResolver(student_schema), mode: 'onChange'
     });
 
     //accessing the functions created in the store

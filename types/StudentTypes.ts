@@ -18,5 +18,11 @@ export type studentType={
     addStudents:(students:formTypes)=>void,
     updateStudents:()=>void,
     deleteStudents:(id:number)=>void,
+    searchResults:string,
+    setSearchResults:(value:string)=>void,
+}
 
+export type loginType={
+    email:string,
+    password:string,
 }

@@ -3,6 +3,7 @@ import Home from '../Pages/Home'
 import Addstudents from '../Pages/Addstudents'
 import EditStudents from '../Pages/EditStudents'
 import NotFound from '../Pages/NotFound'
+import LoginPage from '../Pages/LoginPage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../src/App.css'
 function App() {
@@ -14,6 +15,7 @@ function App() {
          <Route path='/add-student' element={<Addstudents/>}/>
          <Route path='/edit-student/:id' element={<EditStudents/>}/>
          <Route path="*" element={<NotFound/>}/>
+         <Route path='/login' element={<LoginPage/>}/>
         </Routes>
       </BrowserRouter>
     </>
