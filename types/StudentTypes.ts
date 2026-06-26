@@ -26,3 +26,9 @@ export type loginType={
     email:string,
     password:string,
 }
+
+export type signupType={
+    email:string,
+    password:string,
+    confirm_password:string
+}

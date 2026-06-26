@@ -97,7 +97,7 @@ function Forms({ title_edit = false }: formTitle) {
                                 <Button variant="primary" type="submit">
                                     {title_edit ? 'Edit Student Info' : 'Add New Student'}
                                 </Button>
-                                <Button variant="primary" onClick={() => navigate('/')}>
+                                <Button variant="primary" onClick={() => navigate('/home')}>
                                     Return to Home
                                 </Button>
                             </div>

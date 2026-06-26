@@ -31,7 +31,7 @@ const useUserStore = create<studentType>()(
                 set({
                     searchResults:value
                 })
-            }
+            },
         }),
         {
             name: 'students',

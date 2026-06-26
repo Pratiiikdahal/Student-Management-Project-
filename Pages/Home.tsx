@@ -2,7 +2,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import useuserStore from '../State/store'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-import { formTypes } from '../types/StudentTypes';
+import type { formTypes } from '../types/StudentTypes';
 import Modals from '../Components/Modals';
 import deleteStudents from '../State/store'
 import useUserStore from '../State/store';
@@ -54,7 +54,7 @@ function Home() {
                                 {students.length === 0 ?
                                     (<p className='text-center'>No users Found.</p>) :
                                     (filteredStudents.map((student) => (
-                                        <Col lg={4} md={5} sm={12} className='g-2'>
+                                        <Col  key={filteredStudents.phone} lg={4} md={5} sm={12} className='g-2'>
                                             <div className="std-card d-flex flex-column gap-2 ">
                                                 <div className="image-container">
                                                 </div>

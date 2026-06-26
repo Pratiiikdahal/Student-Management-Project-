@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { formTypes } from '../types/StudentTypes';
+import type { formTypes } from '../types/StudentTypes';
 import { students } from '../utils/students';
 import users from '../State/store';
 import useUserStore from '../State/store';
@@ -37,7 +37,7 @@ function Modals(props: userDeleteProp) {
           >
             Delete Student
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> 
       </Modal>
     </>
   );
